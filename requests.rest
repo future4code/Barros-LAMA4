@@ -9,3 +9,12 @@ Content-Type: application/json
     "password": "102030",
     "role": "ADMIN"
 }
+###
+POST http://localhost:3000/user/createBandRegister
+{
+     
+    "name": "Mauricio",
+    "music_genre":"ForMetal",
+    "responsible": "Bon Jovi",
+    "role": "ADMIN"
+}

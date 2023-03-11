@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS Bands_Name (
   name VARCHAR(255) UNIQUE NOT NULL,
   music_genre VARCHAR(255) NOT NULL,
   responsible VARCHAR(255) UNIQUE NOT NULL 
+  role VARCHAR(255) NOT NULL DEFAULT "ADMIN"
+
 );
 
 ### Query que cria a tabela de Shows
