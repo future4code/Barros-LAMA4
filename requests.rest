@@ -1,0 +1,11 @@
+### Criar Usuário
+
+POST http://localhost:3000/user/signup 
+Content-Type: application/json
+
+{   
+    "email": "exemplo-ricardo2@lbn.com",
+    "name": "Ricardo Barros", 
+    "password": "102030",
+    "role": "ADMIN"
+}
