@@ -1,13 +1,13 @@
 import express from "express";
 import { UserController } from "../controller/UserController";
-import { BandRegisterController } from "../controller/BandRegisterController";
+import { BandRController } from "../controller/BandRController";
 
 
 export const userRouter = express.Router();
 
 const userController = new UserController();
-const bandRegisterController = new BandRegisterController();
+const bandRController = new BandRController();
 
 userRouter.post("/signup", userController.signup);
 userRouter.post("/login", userController.login);
-userRouter.post("/createBandRegister",bandRegisterController );
+userRouter.post("/createBandRegister",bandRController );
