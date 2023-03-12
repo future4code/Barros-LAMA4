@@ -1,8 +1,9 @@
-import { v4 } from "uuid";
+import { v4 } from "uuid"
+import { GeneratorId } from "../model/GeneratorId"
 
-export class IdGenerator{
 
-    generate(): string{
-        return v4();
+export class IdGenerator implements GeneratorId {
+    generateId (): string {
+        return v4()
     }
 }

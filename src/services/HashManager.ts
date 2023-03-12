@@ -1,17 +1,20 @@
-import * as bcrypt from "bcryptjs";
+import * as bcrypt from "bcryptjs"
+import dotenv from "dotenv"
+import { HashGenarator } from "../model/HashGenerator"
 
+dotenv.config()
 
-export class HashManager {
+export class HashManager implements HashGenarator {
+    generateHash = async (plaintext: string): Promise<string> => {
+        const cost: number = Number(process.env.BCRYPT_COST)
+        const salt: string = await bcrypt.genSalt(cost)
+        const hash: string = await bcrypt.hash(plaintext, salt)
 
-    public async hash(text: string): Promise<string> {
-        const rounds = 12;
-        const salt = await bcrypt.genSalt(rounds);
-        const result = await bcrypt.hash(text, salt);
-        return result;
+        return hash
     }
 
-    public async compare(text: string, hash: string): Promise<boolean>{
-        return await bcrypt.compare(text, hash);
+    compareHash = async (plaintex: string, hashtext: string): Promise<boolean> => {
+        const result = await bcrypt.compare(plaintex, hashtext)
+        return result
     }
-
 }

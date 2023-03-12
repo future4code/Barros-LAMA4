@@ -1,39 +1,26 @@
-import { BaseDatabase } from "./BaseDatabase";
-import { User } from "../model/User";
+import { CustomError } from "../error/BaseError"
+import { User } from "../model/User"
+import { UserRepository } from "../model/UserRepository"
+import { BaseDatabase } from "./BaseDatabase"
 
-export class UserDatabase extends BaseDatabase {
 
-  private static TABLE_NAME = "Lama_Users";
-
-  public async createUser(
-    id: string,
-    email: string,
-    name: string,
-    password: string,
-    role: string
-  ): Promise<void> {
-    try {
-      await BaseDatabase.connection
-        .insert({
-          id,
-          email,
-          name,
-          password,
-          role
-        })
-        .into(UserDatabase.TABLE_NAME);
-    } catch (error: any) {
-      throw new Error(error.sqlMessage || error.message);
-    }
+export class UserDatabase extends BaseDatabase implements UserRepository {
+  private TABLE_NAME = "Lama_Users"
+  
+  async signup (newUser: User): Promise<void> {
+      try {
+          await BaseDatabase.connection(this.TABLE_NAME).insert(newUser)
+      } catch (error: any) {
+          throw new CustomError(error.statusCode, error.message)
+      }
   }
 
-  public async getUserByEmail(email: string): Promise<User> {
-    const result = await BaseDatabase.connection
-      .select("*")
-      .from(UserDatabase.TABLE_NAME)
-      .where({ email });
-
-    return User.toUserModel(result[0]);
+  async getUser (column: string, value: string): Promise<User | undefined> {
+      try {
+          const result = await BaseDatabase.connection(this.TABLE_NAME).select().where(column, value)
+          return result[0]
+      } catch (error: any) {
+          throw new CustomError(error.statusCode, error.message)
+      }
   }
-
 }
