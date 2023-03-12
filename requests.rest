@@ -1,6 +1,6 @@
 ### Criar Usuário
 
-POST http://localhost:3000/user/signup 
+POST POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {   
@@ -10,7 +10,7 @@ Content-Type: application/json
     "role": "ADMIN"
 }
 ###
-POST http://localhost:3000/user/createBandRegister
+POST http://localhost:3003/create
 {
      
     "name": "Mauricio",

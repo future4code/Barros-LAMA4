@@ -1,83 +1,32 @@
-export class User{
-    constructor(
-    private id: string,
-    private name: string,
-    private email: string,
-    private password: string,
-    private role: UserRole
-    ){}
-
-    getId(){
-        return this.id;
-    }
-
-    getName(){
-        return this.name
-    }
-
-    getEmail(){
-        return this.email;
-    }
-
-    getPassword(){
-        return this.password;
-    }
-
-    getRole(){
-        return this.role;
-    }
-
-    setId(id: string){
-        this.id = id;
-    }
-
-    setName(name: string){
-        this.name = name;
-    }
-
-    setEmail(email: string){
-        this.email = email;
-    }
-
-    setPassword(password: string){
-        this.password = password;
-    }
-
-    setRole(role: UserRole){
-        this.role = role;
-    }
-
-   static stringToUserRole(input: string): UserRole{
-        switch (input) {
-            case "NORMAL":
-              return UserRole.NORMAL;
-            case "ADMIN":
-              return UserRole.ADMIN;
-            default:
-              throw new Error("Invalid user role");
-          }
-    }
-
-    static toUserModel(user: any): User {
-        return new User(user.id, user.name, user.email, user.password, User.stringToUserRole(user.role));
-      }
-
-
+export enum UserRole {
+    ADMIN = "ADMIN",
+    NORMAL = "NORMAL"
 }
 
-export interface UserInputDTO{
-    email: string;
-    password: string;
-    name: string;
-    role: string;
+export class User {
+    constructor (
+        public readonly id: string,
+        public readonly name: string,
+        public readonly email: string,
+        public readonly password: string,
+        public readonly role: UserRole
+    ) {
+        this.id = id
+        this.name = name
+        this.email = email
+        this.password = password
+        this.role = role        
+    }
 }
 
-export interface LoginInputDTO{
-    email: string;
-    password: string;
+export interface inputSignUpDTO {
+    email: string,
+    password: string,
+    name: string,
+    role: string
 }
 
-export enum UserRole{
-    NORMAL = "NORMAL",
-    ADMIN = "ADMIN"
+export interface loginInputDTO {
+    email: string,
+    password: string
 }
