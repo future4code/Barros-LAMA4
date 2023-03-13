@@ -1,3 +1,4 @@
+
 export class BandCreateDTO {
     constructor (
         public readonly id: string,
@@ -16,5 +17,10 @@ export interface inputCreateBandDTO {
     name: string,
     musicGenre: string,
     responsible: string,
+    token: string
+}
+export interface inputGetBandDTO {
+    id: string,
+    name: string,
     token: string
 }

@@ -24,5 +24,29 @@ export class Responsible extends CustomError {
         super (422, "Provide the name of the responsible for the band.")
     }
 }
+export class NameOrId extends CustomError {
+    constructor () {
+        super (422, "Provide the id or the name of the band.")
+    }
+}
+
+export class IdNotFound extends CustomError {
+    constructor () {
+        super (404, "Band id not found.")
+    }
+}
+
+export class NameNotFound extends CustomError {
+    constructor () {
+        super (404, "Band name not found.")
+    }
+}
+
+export class InvalidInfo extends CustomError {
+    constructor () {
+        super (422, "Provide either the band id or the band name.")
+    }
+}
+
 
 export { CustomError }
