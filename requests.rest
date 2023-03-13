@@ -4,12 +4,22 @@ POST http://localhost:3000/user/signup
 Content-Type: application/json
 
 {   
-    "email": "exemplo-ricardo2@lbn.com",
-    "name": "Ricardo Barros", 
-    "password": "102030",
+    "email": "exemplo-victor@lbn.com",
+    "name": "Victor", 
+    "password": "010203",
     "role": "ADMIN"
 }
-###
+
+### Login
+POST http://localhost:3000/user/login 
+Content-Type: application/json
+
+{   
+    "email": "exemplo-victor@lbn.com",
+    "password": "010203"
+}
+
+### Registrar uma Banda
 POST http://localhost:3000/user/createBandRegister
 {
      
