@@ -4,8 +4,6 @@ import { Unauthorized } from "../error/BaseError"
 import { AuthenticationData } from "../model/AuthenticatorData"
 import { IdAuthenticator } from "../model/IdAuthenticator"
 
-
-
 dotenv.config()
 
 export class Authenticator implements IdAuthenticator {
