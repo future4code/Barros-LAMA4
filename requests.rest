@@ -1,26 +1,35 @@
 ### Criar Usuário
 
-POST http://localhost:3000/user/signup 
+POST POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {   
-    "email": "exemplo-victor@lbn.com",
-    "name": "Victor", 
-    "password": "010203",
+
+    "email": "exemplo-mauricio@lbn.com",
+    "name": "Mauricio", 
+    "password": "123456",
+
     "role": "ADMIN"
 }
 
 ### Login
+
+
+
 POST http://localhost:3000/user/login 
 Content-Type: application/json
 
 {   
-    "email": "exemplo-victor@lbn.com",
-    "password": "010203"
+
+    "email": "exemplo-mauricio@lbn.com",
+    "password": "123456"
 }
 
-### Registrar uma Banda
-POST http://localhost:3000/user/createBandRegister
+###
+
+POST http://localhost:3003/create
+
+
 {
      
     "name": "Mauricio",

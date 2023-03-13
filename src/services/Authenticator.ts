@@ -1,32 +1,30 @@
-import * as jwt from "jsonwebtoken";
+import dotenv from "dotenv"
+import * as jwt from "jsonwebtoken"
+import { Unauthorized } from "../error/BaseError"
+import { AuthenticationData } from "../model/AuthenticatorData"
+import { IdAuthenticator } from "../model/IdAuthenticator"
 
-export class Authenticator {
-  public generateToken(input: AuthenticationData,
-    expiresIn: string = process.env.ACCESS_TOKEN_EXPIRES_IN!): string {
-    const token = jwt.sign(
-      {
-        id: input.id,
-        role: input.role
-      },
-      process.env.JWT_KEY as string,
-      {
-        expiresIn: "1h"
-      }
-    );
-    return token;
-  }
 
-  public getData(token: string): AuthenticationData {
-    const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
-    const result = {
-      id: payload.id,
-      role: payload.role
-    };
-    return result;
-  }
-}
 
-interface AuthenticationData {
-  id: string;
-  role?: string;
+dotenv.config()
+
+export class Authenticator implements IdAuthenticator {
+    public generateToken = ({id, role}: AuthenticationData): string => {
+        const token = jwt.sign(
+            {id, role},
+            process.env.JWT_KEY as string,
+            {expiresIn: "1h"}
+        )
+
+        return token
+    }
+
+    public getTokenData = (token: string): AuthenticationData => {
+        try {
+            const payload = jwt.verify(token, process.env.JWT_KEY as string) as AuthenticationData
+            return {id: payload.id, role: payload.role}
+        } catch (err: any) {
+            throw new Unauthorized()
+        }
+    }
 }

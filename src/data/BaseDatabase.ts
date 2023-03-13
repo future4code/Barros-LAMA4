@@ -14,7 +14,7 @@ export class BaseDatabase {
          database: process.env.DB_SCHEMA,
          port: 3306,
          multipleStatements: true
-        }
+      }
    })
 
 }

@@ -1,93 +1,94 @@
-import { UserInputDTO, LoginInputDTO } from "../model/User";
-import { UserDatabase } from "../data/UserDatabase";
-import { IdGenerator } from "../services/IdGenerator";
-import { HashManager } from "../services/HashManager";
-import { Authenticator } from "../services/Authenticator";
-import { CustomError, InvalidEmail, InvalidName, InvalidPassword, SmallEmail, UserNotFound } from "../error/BaseError";
+
+=======
+import { CustomError } from "../error/BaseError"
+import { DuplicateEmail, EmailNotFound, IncorrectPassword, InvalidEmail, InvalidPassword, MissingEmail, MissingPassword, MissingUserName, MissingUserRole } from "../error/UserErros"
+import { IdAuthenticator } from "../model/IdAuthenticator"
+import { HashGenarator } from "../model/HashGenerator"
+import { UidGenarator } from "../model/UidGenarator"
+import { inputSignUpDTO, loginInputDTO, User, UserRole } from "../model/User"
+import { UserRepository } from "../model/UserRepository"
+
+
+
 
 export class UserBusiness {
+    constructor (
+        private userDatabase : UserRepository,
+        private idGenerator: UidGenarator,
+        private hashManager: HashGenarator,
+        private authenticator: IdAuthenticator
+    ) {}
 
-    async createUser(user: UserInputDTO) {
-
+    async signup (input: inputSignUpDTO): Promise<string> {
         try {
-
-            if(!user.email){
-                throw new InvalidEmail
+            if (!input.name) {
+                throw new MissingUserName()
+            }
+            if (!input.email) {
+                throw new MissingEmail()
+            }
+            if (!input.password) {
+                throw new MissingPassword()
+            }
+            if (!input.role) {
+                throw new MissingUserRole()
+            }
+            if (input.password.length < 8) {
+                throw new InvalidPassword()
+            }
+            if (!input.email.includes("@")) {
+                throw new InvalidEmail()
             }
 
-            const filterEmail = user.email.includes("@" && ".com")
-            if(filterEmail != true){
-                throw new InvalidEmail
+            const isEmailDuplicate = await this.userDatabase.getUser("email", input.email)
+            if (isEmailDuplicate) {
+                throw new DuplicateEmail()
             }
+    
+            let role
+            input.role.toUpperCase() === UserRole.ADMIN ? role = UserRole.ADMIN : role = UserRole.NORMAL
+            
+            const id = this.idGenerator.generateId()
+            const hashPassword = await this.hashManager.generateHash(input.password)
 
-            if(!user.name){
-                throw new InvalidName
-            }
+            const newUser = new User(id, input.name, input.email, hashPassword, role)
+            await this.userDatabase.signup(newUser)
+            
+            return this.authenticator.generateToken({id, role})
 
-            if(user.email.length < 10){
-                throw new SmallEmail
-            }
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
 
-            if(user.name.length < 4){
-                throw new InvalidName
-            }
-
-            if(!user.password){
-                throw new InvalidPassword
-            }
-
-            if(user.password.length < 6){
-                throw new InvalidPassword
-            }   
-
-            const idGenerator = new IdGenerator();
-            const id = idGenerator.generate();
-
-            const hashManager = new HashManager();
-            const hashPassword = await hashManager.hash(user.password);
-
-            const userDatabase = new UserDatabase();
-            await userDatabase.createUser(id, user.email, user.name, hashPassword, user.role);
-
-            const authenticator = new Authenticator();
-            const accessToken = authenticator.generateToken({ id, role: user.role });
-
-            return accessToken;
-
-        } catch (error:any) {
-            throw new CustomError(error.status, error.message)
         }
     }
 
-    async getUserByEmail(user: LoginInputDTO) {
-
+    async login (input: loginInputDTO): Promise<string> {
         try {
-
-            if(!user.email){
-                throw new UserNotFound
+            if (!input.email) {
+                throw new MissingEmail()
+            }
+            if (!input.password) {
+                throw new MissingPassword()
+            }
+            if (!input.email.includes("@")) {
+                throw new InvalidEmail()
             }
 
-            if(!user.password){
-                throw new InvalidPassword
+            const emailExists = await this.userDatabase.getUser("email", input.email)
+            if (!emailExists) {
+                throw new EmailNotFound()
             }
 
-            const userDatabase = new UserDatabase();
-            const userFromDB = await userDatabase.getUserByEmail(user.email);
-
-            const hashManager = new HashManager();
-            const hashCompare = await hashManager.compare(user.password, userFromDB.getPassword());
-
-            const authenticator = new Authenticator();
-            const accessToken = authenticator.generateToken({ id: userFromDB.getId(), role: userFromDB.getRole() });
-
-            if (!hashCompare) {
-                throw new Error("Invalid Password!");
+            const compareHash = await this.hashManager.compareHash(input.password, emailExists.password)
+            if (!compareHash) {
+                throw new IncorrectPassword()
             }
 
-            return accessToken;
+            const token = this.authenticator.generateToken({ id: emailExists.id, role: emailExists.role})
+            return token
 
-        } catch (error:any) {
-            throw new CustomError(error.status, error.message)
-        }
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        
     }
 }
