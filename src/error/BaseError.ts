@@ -28,6 +28,12 @@ export class InvalidEmail extends CustomError{
     }
 }
 
+export class SmallEmail extends CustomError{ 
+    constructor(){
+        super(400, "Email muito pequeno")
+    }
+}
+
 export class InvalidPassword extends CustomError{ 
     constructor(){
         super(400, "Senha inválida")

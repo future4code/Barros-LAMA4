@@ -1,3 +1,5 @@
+
+=======
 import { CustomError } from "../error/BaseError"
 import { DuplicateEmail, EmailNotFound, IncorrectPassword, InvalidEmail, InvalidPassword, MissingEmail, MissingPassword, MissingUserName, MissingUserRole } from "../error/UserErros"
 import { IdAuthenticator } from "../model/IdAuthenticator"
@@ -5,6 +7,8 @@ import { HashGenarator } from "../model/HashGenerator"
 import { UidGenarator } from "../model/UidGenarator"
 import { inputSignUpDTO, loginInputDTO, User, UserRole } from "../model/User"
 import { UserRepository } from "../model/UserRepository"
+
+
 
 
 export class UserBusiness {
@@ -54,9 +58,9 @@ export class UserBusiness {
 
         } catch (error: any) {
             throw new CustomError(error.statusCode, error.message)
+
         }
     }
-
 
     async login (input: loginInputDTO): Promise<string> {
         try {
@@ -85,6 +89,6 @@ export class UserBusiness {
 
         } catch (error: any) {
             throw new CustomError(error.statusCode, error.message)
-        }
+        
     }
 }
