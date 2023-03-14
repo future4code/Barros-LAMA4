@@ -1,23 +1,23 @@
 ### Criar Usuário
 
-POST  http://localhost:3003/users/signup
+POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {   
-    "email": "exemplo-mauricio@lbn.com",
-    "name": "Mauricio", 
+    "email": "exemplo-elton@lbn.com",
+    "name": "Elton", 
     "password": "12345678",
     "role": "ADMIN"
 }
 
 ### Login
 
-POST http://localhost:3000/user/login 
+POST http://localhost:3003/user/login 
 Content-Type: application/json
 
 {   
-    "email": "exemplo-mauricio@lbn.com",
-    "password": "123456"
+    "email": "exemplo-elton@lbn.com",
+    "password": "12345678"
 }
 
 ###
