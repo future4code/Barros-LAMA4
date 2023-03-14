@@ -1,4 +1,3 @@
-import { Request,Response} from "express";
 import express from "express"
 import { UserBusiness } from "../business/UserBusiness"
 import { UserController } from "../controller/UserController"
@@ -14,5 +13,5 @@ const userDatabase = new UserDatabase()
 const userBusiness = new UserBusiness(userDatabase, new IdGenerator(), new HashManager(), new Authenticator())
 const userController = new UserController(userBusiness)
 
-userRouter.post("/signup", (req, res) => userController.signup(req, res)) // pt 1
-userRouter.post("/login", (req, res) => userController.login(req, res)) //  pt2
+userRouter.post("/signup", (req, res) => userController.signup(req, res))
+userRouter.post("/login", (req, res) => userController.login(req, res))
