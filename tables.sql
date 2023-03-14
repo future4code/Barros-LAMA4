@@ -1,4 +1,4 @@
--- Active: 1676323408280@@35.226.146.116@3306@jbl-4416472-mauricio-toledo
+-- Active: 1676582098331@@35.226.146.116@3306@jbl-4416547-ricardo-morais
 
 ### Query que cria a tabela de Bandas
 CREATE TABLE IF NOT EXISTS Bands_Name (

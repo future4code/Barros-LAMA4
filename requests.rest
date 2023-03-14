@@ -38,3 +38,22 @@ Content-Type: application/json
 GET http://localhost:3300/bands/info?name=U2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
 Content-Type: application/json
+
+###
+
+POST http://localhost:3300/bands/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+Content-Type: application/json
+
+
+{
+    
+"name": "U2",
+ "musicGenre": "Pop", 
+ "responsible": "Bono Vox"
+}
+
+###
+GET http://localhost:3300/bands/info?name=U2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+Content-Type: application/json
