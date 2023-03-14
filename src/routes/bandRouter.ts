@@ -13,3 +13,4 @@ const bandBusiness = new BandCreateBusiness(bandDatabase, new Authenticator(), n
 const bandController = new BandCreateController(bandBusiness)
 
 bandRouter.post("/create", (req, res) => bandController.createBand(req, res))
+bandRouter.get("/info", (req, res) => bandController.getBandInfo(req, res))

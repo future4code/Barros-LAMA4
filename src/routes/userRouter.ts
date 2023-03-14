@@ -1,4 +1,3 @@
-import { Request,Response} from "express";
 import express from "express"
 import { UserBusiness } from "../business/UserBusiness"
 import { UserController } from "../controller/UserController"
