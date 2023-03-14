@@ -2,7 +2,7 @@ import { NameOrId,NameNotFound,IdNotFound,InvalidInfo, } from "../error/BandErro
 import { DuplicateBandName, BandName, MusicGenre, Responsible } from "../error/BandErrors"
 import { CustomError } from "../error/BaseError"
 import { MissingToken, Unauthorized } from "../error/BaseError"
-import { BandCreateDTO, inputCreateBandDTO, inputGetBandDTO } from '../model/BandCreateDTO';
+import { BandCreateDTO, inputBandDTO, inputGetBandDTO } from '../model/BandCreateDTO';
 import { BandRepository } from "../model/BandRepository"
 import { IdAuthenticator } from "../model/IdAuthenticator"
 import { GeneratorId } from "../model/GeneratorId"
@@ -15,7 +15,7 @@ export class BandCreateBusiness {
         private idGenerator: GeneratorId
     ) {}
 
-    async createBand (input: inputCreateBandDTO): Promise<void> {
+    async createBand (input: inputBandDTO): Promise<void> {
         try {
             if (!input.name) {
                 throw new BandName()
@@ -66,7 +66,7 @@ export class BandCreateBusiness {
                 throw new InvalidInfo()
             }
         
-            let result:any
+            let result : any
             if (input.id) {
                 const idExists = await this.bandDatabase.getBandBy("id", input.id)
                 if (!idExists) {
@@ -76,9 +76,9 @@ export class BandCreateBusiness {
             }
 
             if (input.name) {
-                input.name = input.name.replace("","")
+                input.name = input.name.replace("_", " ")
                 
-                const nameExists = await this.bandDatabase.getBandBy("bandName", input.name)
+                const nameExists = await this.bandDatabase.getBandBy("name", input.name)
                 if (!nameExists) {
                     throw new NameNotFound()
                 }

@@ -1,34 +1,40 @@
 ### Criar Usuário
 
-POST  http://localhost:3003/users/signup
+POST  http://localhost:3300/users/signup
 Content-Type: application/json
 
 {   
-    "email": "exemplo-mauricio@lbn.com",
-    "name": "Mauricio", 
+    "email": "maurilio9@mauricio.com",
+    "name": "Maurilio", 
     "password": "12345678",
     "role": "ADMIN"
 }
 
 ### Login
 
-POST http://localhost:3000/user/login 
+POST http://localhost:3300/users/login 
 Content-Type: application/json
 
 {   
     "email": "exemplo-mauricio@lbn.com",
-    "password": "123456"
+    "password": "12345678"
 }
 
 ###
 
-POST http://localhost:3003/bands/create 
+POST http://localhost:3300/bands/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+Content-Type: application/json
+
 
 {
-     
-    "name": "Mauricio",
-    "music_genre":"ForMetal",
-    "responsible": "Bon Jovi",
     
-    
+"name": "U2",
+ "musicGenre": "Pop", 
+ "responsible": "Bono Vox"
 }
+
+###
+GET http://localhost:3300/bands/info?name=U2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+Content-Type: application/json
