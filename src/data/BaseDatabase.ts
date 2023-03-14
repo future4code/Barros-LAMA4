@@ -12,7 +12,7 @@ export class BaseDatabase {
          user: process.env.DB_USER,
          password: process.env.DB_PASSWORD,
          database: process.env.DB_SCHEMA,
-         port: 3006,
+         port: 3000,
          multipleStatements: true
       }
    })
