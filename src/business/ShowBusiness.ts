@@ -1,5 +1,5 @@
-import { ShowDataBase } from "../data/ShowDataBase";
-import { ICreateShowInputDTO, ICreateShowOutputDTO, ICreateShowtDTO, ShowDTO } from "../model/Show";
+
+import  { ICreateShowtDTO, ShowDTO } from "../model/Show";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 import { IdAuthenticator } from "../model/IdAuthenticator";
