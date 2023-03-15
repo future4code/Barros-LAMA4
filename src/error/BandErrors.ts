@@ -48,5 +48,11 @@ export class InvalidInfo extends CustomError {
     }
 }
 
+export class BandId extends CustomError{
+    constructor () {
+        super (422, "Provide the band id.")
+    }
+}
+
 
 export { CustomError }
