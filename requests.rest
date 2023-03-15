@@ -16,44 +16,35 @@ POST http://localhost:3300/users/login
 Content-Type: application/json
 
 {   
-    "email": "exemplo-mauricio@lbn.com",
+    "email": "maurilio9@mauricio.com",
     "password": "12345678"
 }
 
-###
-
+### Criar Banda
 POST http://localhost:3300/bands/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzg5ODZiLTNjNTgtNGNlNS1iY2Y0LTc0MWMwYjkxMjhjYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgzMTE2MiwiZXhwIjoxNjc4ODM0NzYyfQ.MIhcNvn_4IGmsqGsJ9-yPhQmYoYcxJfqUf3fxruhD88
 Content-Type: application/json
-
 
 {
     
-"name": "U2",
- "musicGenre": "Pop", 
- "responsible": "Bono Vox"
+    "name": "U2",
+    "musicGenre": "Pop", 
+    "responsible": "Bono Vox"
 }
 
-###
+### Ver Bandas Criadas
 GET http://localhost:3300/bands/info?name=U2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzg5ODZiLTNjNTgtNGNlNS1iY2Y0LTc0MWMwYjkxMjhjYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgzMTE2MiwiZXhwIjoxNjc4ODM0NzYyfQ.MIhcNvn_4IGmsqGsJ9-yPhQmYoYcxJfqUf3fxruhD88
 Content-Type: application/json
 
-###
 
-POST http://localhost:3300/bands/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
+### Criar Shows
+
+POST http://localhost:3000/show/createShow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzg5ODZiLTNjNTgtNGNlNS1iY2Y0LTc0MWMwYjkxMjhjYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgzMTE2MiwiZXhwIjoxNjc4ODM0NzYyfQ.MIhcNvn_4IGmsqGsJ9-yPhQmYoYcxJfqUf3fxruhD88
 Content-Type: application/json
-
 
 {
-    
-"name": "U2",
- "musicGenre": "Pop", 
- "responsible": "Bono Vox"
+    "band": "U2",
+    "startsAt": "2023/03/17"
 }
-
-###
-GET http://localhost:3300/bands/info?name=U2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA4YjgwMDMxLWZlNWEtNDAwYy04ZTBhLTJiMmI0ZjZmMmUxOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgyMjYzMywiZXhwIjoxNjc4ODI2MjMzfQ.Pa7Ml0Zch_ZPAyce0b23cL1Be8Q2HVjAN6wV00dx1dI
-Content-Type: application/json
