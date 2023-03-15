@@ -35,17 +35,3 @@ export interface outputGetAllShowDTO {
     music_genre: string
 }
 
-export interface IUpdateShowDTO {
-    id: string,
-    weekDay: string,
-    startTime: string,
-    endTime: string,
-    token: string
-}
-
-export interface updateShowDatabaseDTO {
-    id: string,
-    weekDay: string,
-    startTime: string,
-    endTime: string
-}

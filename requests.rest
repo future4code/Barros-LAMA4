@@ -4,7 +4,7 @@ POST  http://localhost:3300/users/signup
 Content-Type: application/json
 
 {   
-    "email": "maurilio9@mauricio.com",
+    "email": "maur9@mauricio.com",
     "name": "Maurilio", 
     "password": "12345678",
     "role": "ADMIN"
@@ -16,35 +16,39 @@ POST http://localhost:3300/users/login
 Content-Type: application/json
 
 {   
-    "email": "maurilio9@mauricio.com",
+    "email": "maur9@mauricio.com",
     "password": "12345678"
 }
 
 ### Criar Banda
 POST http://localhost:3300/bands/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzg5ODZiLTNjNTgtNGNlNS1iY2Y0LTc0MWMwYjkxMjhjYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgzMTE2MiwiZXhwIjoxNjc4ODM0NzYyfQ.MIhcNvn_4IGmsqGsJ9-yPhQmYoYcxJfqUf3fxruhD88
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
 Content-Type: application/json
 
 {
     
-    "name": "U2",
-    "musicGenre": "Pop", 
-    "responsible": "Bono Vox"
+    "name": "Nirvana",
+    "musicGenre": "Rock", 
+    "responsible": "Kurt"
 }
 
 ### Ver Bandas Criadas
-GET http://localhost:3300/bands/info?name=U2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzg5ODZiLTNjNTgtNGNlNS1iY2Y0LTc0MWMwYjkxMjhjYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgzMTE2MiwiZXhwIjoxNjc4ODM0NzYyfQ.MIhcNvn_4IGmsqGsJ9-yPhQmYoYcxJfqUf3fxruhD88
+GET http://localhost:3300/bands/info?name=Nirvana
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
 Content-Type: application/json
 
 
 ### Criar Shows
 
-POST http://localhost:3000/show/createShow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzg5ODZiLTNjNTgtNGNlNS1iY2Y0LTc0MWMwYjkxMjhjYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODgzMTE2MiwiZXhwIjoxNjc4ODM0NzYyfQ.MIhcNvn_4IGmsqGsJ9-yPhQmYoYcxJfqUf3fxruhD88
+POST http://localhost:3300/show/create 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
 Content-Type: application/json
 
 {
-    "band": "U2",
-    "startsAt": "2023/03/17"
+    "bandId" : "d4c43186-52ed-4f24-8dba-382a8f742378",
+    "weekDay": "friday", 
+    "startTime": "8:00", 
+    "endTime": "10:00",
+    "id" : "d4c43186-52ed-4f24-8dba-382a8f742378"
 }
+### Retorna os shows

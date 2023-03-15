@@ -1,5 +1,5 @@
 import { CustomError } from "../error/BaseError"
-import { ShowDTO,outputGetAllShowDTO,updateShowDatabaseDTO } from "../model/Show"
+import { ShowDTO,outputGetAllShowDTO } from "../model/Show"
 
 import { ShowsRepository } from "../model/ShowRepository"
 import { BaseDatabase } from "./BaseDatabase"
@@ -52,13 +52,4 @@ export class ShowsDatabase extends BaseDatabase implements ShowsRepository {
     }
 
 
-    async updateShows (newInfo: updateShowDatabaseDTO): Promise<void> {
-        try {
-            await BaseDatabase.connection(this.TABLE_NAME)
-            .update({week_day: newInfo.weekDay, start_time: newInfo.startTime, end_time: newInfo.endTime})
-            .where("id", newInfo.id)
-        } catch (error: any) {
-            throw new CustomError(error.statusCode, error.message)
-        }
-    }
 }

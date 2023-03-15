@@ -1,4 +1,4 @@
-import { ShowDTO, updateShowDatabaseDTO, outputGetAllShowDTO } from "./Show"
+import { ShowDTO, outputGetAllShowDTO } from "./Show"
 
 
 export interface ShowsRepository {
@@ -6,5 +6,5 @@ export interface ShowsRepository {
     searchShows (weekDay: string, column: string, value: string): Promise<any>
     getAllShows (weekDay: string): Promise<outputGetAllShowDTO[]>
     getShowsById (id: string): Promise<any>
-    updateShows (newInfo: updateShowDatabaseDTO): Promise<void>
+    
 }

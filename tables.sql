@@ -36,7 +36,10 @@ DROP TABLE `NOME_TABELA_BANDAS`, `NOME_TABELA_SHOWS`;
 ###
 
 SELECT * FROM `Lama_Users`;
+<<<<<<< HEAD
+=======
 
 ###
 
 SELECT * FROM `Table_Shows`;
+>>>>>>> 6fd8418e0205b5c84fbd61ca69e6626fb5529da5
