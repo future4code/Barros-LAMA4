@@ -1,0 +1,10 @@
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: text/html; charset=utf-8
+Content-Length: 26
+ETag: W/"1a-PcuEgwzW/gXXsATEQgQU7E5GuWE"
+Date: Wed, 15 Mar 2023 20:16:02 GMT
+Connection: close
+
+Band created successfully!

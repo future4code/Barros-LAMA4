@@ -20,7 +20,7 @@ export class WeekDay extends CustomError {
 
 export class InvalidWeekDay extends CustomError {
     constructor () {
-        super (422, "The week day can only be  Sexta, sábado or Domingo.")
+        super (422, "The week day can only be  friday, saturday or sunday.")
     }
 }
 
@@ -43,7 +43,11 @@ export class EndTime extends CustomError {
 }
 
 
-
+export class NoShows extends CustomError {
+    constructor (){
+        super (422, "No Shows")
+    }
+}
 
 
 

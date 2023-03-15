@@ -1,25 +1,42 @@
-import { Request, Response } from "express";
-import { ICreateShowInputDTO } from "../model/Show";
-import { ShowBusiness } from "../business/ShowBusiness";
+import { ShowBusiness } from "../business/ShowBusiness"
+import { Request, Response } from "express"
+import { ICreateShowtDTO, IGetAllShowDTO } from "../model/Show"
+
 
 export class ShowController {
-    constructor(
-        private showBusiness: ShowBusiness
-    ) {}
+    constructor (private concertBusiness: ShowBusiness) {}
 
-    public createShow = async (req: Request, res: Response) => {
-        
+    async createConcert (req: Request, res: Response): Promise<void> {
         try {
-            const input: ICreateShowInputDTO = {
-                token: req.body.authorization,
-                band: req.body.band,
-                startsAt: req.body.startsAt
+            const input: ICreateShowtDTO = {
+                weekDay: req.body.weekDay,
+                startTime: req.body.startTime,
+                endTime: req.body.endTime,
+                bandId: req.body.bandId,
+                token: req.headers.authorization as string
             }
 
-            const response = await this.showBusiness.createShow(input)
-            res.status(201).send(response)
+            await this.concertBusiness.createShow(input)
+            res.status(201).send("Show created successfully!")
+
         } catch (error: any) {
-            res.status(error.statusCode).send({ message: error.message })
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+        }
+    }
+
+
+    async getAllShows (req: Request, res: Response): Promise<void> {
+        try {
+            const input:IGetAllShowDTO= {
+                weekDay: req.query.weekDay as string,
+                token: req.headers.authorization as string
+            }
+
+            const result = await this.concertBusiness.getAllShows(input)
+            res.status(200).send(result)
+
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
 }
