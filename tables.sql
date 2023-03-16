@@ -12,12 +12,12 @@ CREATE TABLE IF NOT EXISTS Bands_Name (
 
 ### Query que cria a tabela de Shows
 CREATE TABLE IF NOT EXISTS Table_Shows (
-  id VARCHAR(255) PRIMARY KEY,
-  week_day VARCHAR(255) NOT NULL,
-  start_time INT NOT NULL,
-  end_time INT NOT NULL,
-  band_id VARCHAR(255) NOT NULL,
-  FOREIGN KEY(band_id) REFERENCES Bands_Name(id)
+  id CHAR(36) NOT NULL PRIMARY KEY,
+        week_day VARCHAR(30) NOT NULL,
+        start_time TIME(0) NOT NULL,
+        end_time TIME(0) NOT NULL,
+        band_id CHAR(36) NOT NULL,
+        FOREIGN KEY(band_id) REFERENCES Bands_Name(id)
 );
 
 ### Query que cria tabela de usuários
