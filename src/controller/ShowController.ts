@@ -1,10 +1,10 @@
 import { ShowBusiness } from "../business/ShowBusiness"
 import { Request, Response } from "express"
-import { ICreateShowtDTO, IGetAllShowDTO } from "../model/Show"
+import { ICreateShowtDTO, IGetAllShowDTO, inputUShowDTO } from "../model/Show"
 
 
 export class ShowController {
-    constructor (private concertBusiness: ShowBusiness) {}
+    constructor (private showBusiness: ShowBusiness) {}
 
     async createConcert (req: Request, res: Response): Promise<void> {
         try {
@@ -16,7 +16,7 @@ export class ShowController {
                 token: req.headers.authorization as string
             }
 
-            await this.concertBusiness.createShow(input)
+            await this.showBusiness.createShow(input)
             res.status(201).send("Show created successfully!")
 
         } catch (error: any) {
@@ -32,8 +32,25 @@ export class ShowController {
                 token: req.headers.authorization as string
             }
 
-            const result = await this.concertBusiness.getAllShows(input)
+            const result = await this.showBusiness.getAllShows(input)
             res.status(200).send(result)
+
+        } catch (error: any) {
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+        }
+    }
+    async showConcert (req: Request, res: Response): Promise<void> {
+        try {
+            const input: inputUShowDTO = {
+                id: req.params.id,
+                weekDay: req.body.weekDay,
+                startTime: req.body.startTime,
+                endTime: req.body.endTime,
+                token: req.headers.authorization as string
+            }
+
+            await this.showBusiness.updateConcert(input)
+            res.status(201).send("Show updated successfully!")
 
         } catch (error: any) {
             res.status(error.statusCode || 400).send(error.message || error.sqlMessage)

@@ -1,4 +1,4 @@
--- Active: 1676582098331@@35.226.146.116@3306@jbl-4416547-ricardo-morais
+-- Active: 1676323408280@@35.226.146.116@3306@jbl-4416472-mauricio-toledo
 
 ### Query que cria a tabela de Bandas
 CREATE TABLE IF NOT EXISTS Bands_Name (
@@ -29,17 +29,4 @@ CREATE TABLE IF NOT EXISTS Lama_Users (
   role VARCHAR(255) NOT NULL DEFAULT "NORMAL"
 );
 
-###
-
-DROP TABLE `NOME_TABELA_BANDAS`, `NOME_TABELA_SHOWS`;
-
-###
-
-SELECT * FROM `Lama_Users`;
-<<<<<<< HEAD
-=======
-
-###
-
-SELECT * FROM `Table_Shows`;
->>>>>>> 6fd8418e0205b5c84fbd61ca69e6626fb5529da5
+DROP TABLE  

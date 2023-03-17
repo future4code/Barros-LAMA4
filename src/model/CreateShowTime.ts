@@ -1,8 +1,9 @@
-import { InvalidStartTime, EndTime } from "../error/ShowError"
+import { InvalidStartTime, EndTime, InvalidShowTime } from '../error/ShowError';
 import { CustomError } from "../error/BaseError"
 import { ShowsDatabase } from "../data/ShowDataBase"
 import { ShowsRepository } from "./ShowRepository"
 import { ShowTimeDTO } from "./ShowTimeDTO"
+
 
 
 export class CreateShowTime implements ShowTimeDTO {
@@ -45,4 +46,22 @@ export class CreateShowTime implements ShowTimeDTO {
         }
     }
 
+    public showTimeCheck (startTime: string, endTime: string): void {
+        try {
+            const startTimeArray = startTime.split(":")
+            const endTimeArray = endTime.split(":")
+    
+            if (Number(endTimeArray[0]) < Number(startTimeArray[0])) {
+                throw new InvalidShowTime()
+            }
+            if (Number(endTimeArray[0]) === Number(startTimeArray[0])) {
+                throw new InvalidShowTime()
+            }
+            if (Number(endTimeArray[0]) - Number(startTimeArray[0]) > 2) {
+                throw new InvalidShowTime()
+            }
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
 }

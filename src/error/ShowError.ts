@@ -41,7 +41,11 @@ export class EndTime extends CustomError {
         super (422, "Provide the end time.")
     }
 }
-
+export class InvalidShowTime extends CustomError {
+    constructor () {
+        super (422, "Has to be in the max 1hr.")
+    }
+}
 
 export class NoShows extends CustomError {
     constructor (){
