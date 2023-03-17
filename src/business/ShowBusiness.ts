@@ -1,5 +1,5 @@
 
-import  { ICreateShowtDTO, ShowDTO, outputGetAllShowDTO, IGetAllShowDTO} from "../model/Show";
+import  { ICreateShowtDTO, ShowDTO, outputGetAllShowDTO, IGetAllShowDTO, UShowDatabaseDTO, inputUShowDTO} from "../model/Show";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 import { IdAuthenticator } from "../model/IdAuthenticator";
@@ -10,7 +10,7 @@ import { GeneratorId } from "../model/GeneratorId";
 import { ShowsRepository } from "../model/ShowRepository";
 import { BandRepository } from "../model/BandRepository";
 import { UserRole } from "../model/User";
-import { WeekDay, StartTime, EndTime, InvalidWeekDay, NoShows  } from "../error/ShowError";
+import { WeekDay, StartTime, EndTime, InvalidWeekDay, NoShows, ShowtId  } from "../error/ShowError";
 import { Unauthorized } from "../error/BaseError";
 import { CreateShowTime } from "../model/CreateShowTime";
 
@@ -57,12 +57,13 @@ export class ShowBusiness {
 
             await this.checkUp.startTimeFormat(input.startTime)
             await this.checkUp.endTimeFormat(input.endTime)
+            await this.checkUp.showTimeCheck(input.startTime, input.endTime)
             
+            const showId = this.idGenerator.generateId()
+            const newShow = new ShowDTO(showId, input.weekDay, input.startTime, input.endTime, input.bandId)
+            await this.showDatabase.createShow(newShow)
 
-        const concertId = this.idGenerator.generateId()
-            const newConcert = new ShowDTO(concertId, input.weekDay, input.startTime, input.endTime, input.bandId)
-            await this.showDatabase.createShow(newConcert)
-
+        
         } catch (error: any) {
             throw new CustomError(error.statusCode, error.message)
         }
@@ -94,4 +95,54 @@ export class ShowBusiness {
             throw new CustomError(error.statusCode, error.message)
         }
     } 
+    async updateConcert (input: inputUShowDTO): Promise<void> {
+        try {
+            if (!input.token) {
+                throw new MissingToken()
+            }
+            if (input.id === ":id") {
+                throw new ShowtId()
+            }
+            if (input.weekDay && input.weekDay.toLowerCase() !== "friday" && input.weekDay.toLowerCase() !== "saturday" && input.weekDay.toLowerCase() !== "sunday") {
+                throw new InvalidWeekDay()
+            }
+            
+            const {id, role} = await this.authorization.getTokenData(input.token)
+            if (role.toUpperCase() !== UserRole.ADMIN) {
+                throw new Unauthorized()
+            }
+
+            const getShow = await this.showDatabase.getShowsById(input.id)
+            if (!getShow) {
+                throw new ShowtId()
+            }
+
+            if (!input.weekDay) {
+                input.weekDay = getShow.week_day
+            }
+            if (!input.startTime) {
+                input.startTime = getShow.start_time
+            }
+            if (!input.endTime) {
+                input.endTime = getShow.end_time
+            }
+
+            await this.checkUp.startTimeFormat(input.startTime)
+            await this.checkUp.endTimeFormat(input.endTime)
+            await this.checkUp.showTimeCheck(input.startTime, input.endTime)
+            
+            
+            const newTime: UShowDatabaseDTO = {
+                id: input.id,
+                weekDay: input.weekDay,
+                startTime: input.startTime,
+                endTime: input.endTime
+            }
+
+            await this.showDatabase.updateShow(newTime)
+            
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message)
+        }
+    }
 }

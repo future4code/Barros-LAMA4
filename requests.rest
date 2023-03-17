@@ -4,7 +4,7 @@ POST  http://localhost:3300/users/signup
 Content-Type: application/json
 
 {   
-    "email": "maur9@mauricio.com",
+    "email": "maurilson@mauricio.com",
     "name": "Maurilio", 
     "password": "12345678",
     "role": "ADMIN"
@@ -16,39 +16,46 @@ POST http://localhost:3300/users/login
 Content-Type: application/json
 
 {   
-    "email": "maur9@mauricio.com",
+    "email": "maurilson@mauricio.com",
     "password": "12345678"
 }
 
 ### Criar Banda
 POST http://localhost:3300/bands/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
 Content-Type: application/json
 
 {
     
-    "name": "Nirvana",
+    "name": "Queen",
     "musicGenre": "Rock", 
-    "responsible": "Kurt"
+    "responsible": "Freddie"
 }
 
 ### Ver Bandas Criadas
-GET http://localhost:3300/bands/info?name=Nirvana
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
+GET http://localhost:3300/bands/info?name=Queen
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
 Content-Type: application/json
 
 
 ### Criar Shows
 
 POST http://localhost:3300/show/create 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
 Content-Type: application/json
 
 {
-    "bandId" : "d4c43186-52ed-4f24-8dba-382a8f742378",
-    "weekDay": "friday", 
-    "startTime": "8:00", 
-    "endTime": "10:00",
-    "id" : "d4c43186-52ed-4f24-8dba-382a8f742378"
-}
+    "bandId" : "c05fb35f-1459-4ccb-8861-96221b7d201e",
+    "weekDay": "sunday",
+    "startTime": "9:00:00", 
+    "endTime": "10:00:00"
+  
+    }
+    
+
+
 ### Retorna os shows
+GET http://localhost:3300/show?weekDay=friday 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
+Content-Type: application/json
+
