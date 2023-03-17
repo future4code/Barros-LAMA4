@@ -4,8 +4,8 @@ POST  http://localhost:3300/users/signup
 Content-Type: application/json
 
 {   
-    "email": "maur9@mauricio.com",
-    "name": "Maurilio", 
+    "email": "ricardo@ricardo.com",
+    "name": "Ricardo", 
     "password": "12345678",
     "role": "ADMIN"
 }
@@ -16,36 +16,35 @@ POST http://localhost:3300/users/login
 Content-Type: application/json
 
 {   
-    "email": "maur9@mauricio.com",
+    "email": "ricardo@ricardo.com",
     "password": "12345678"
 }
 
 ### Criar Banda
 POST http://localhost:3300/bands/create
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5Y2Q5MzQ0LWI0YjMtNDk5ZC04NmYwLTQ0ZGVkNjUwZGJiZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTAwODc3MCwiZXhwIjoxNjc5MDEyMzcwfQ.60AuSHHPBYvrX0mpCkE6CO5sCdQ33bYWMBKAPrkTjS8
 Content-Type: application/json
 
 {
     
-    "name": "Nirvana",
+    "name": "Legião Urbana",
     "musicGenre": "Rock", 
-    "responsible": "Kurt"
+    "responsible": "Renato Russo"
 }
 
 ### Ver Bandas Criadas
-GET http://localhost:3300/bands/info?name=Nirvana
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
+GET http://localhost:3300/bands/info
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhYjdhOTAyLWNmMDUtNDZmOS1hNWM0LWQwYjkxNmFkYTE5ZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTAwNTUyNiwiZXhwIjoxNjc5MDA5MTI2fQ.um19fAikWPycj0JkFZMHIMdwgBlUgCmyH6YxK04osNU
 Content-Type: application/json
 
 
 ### Criar Shows
 
 POST http://localhost:3300/show/create 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTgxOSwiZXhwIjoxNjc4OTE1NDE5fQ.P078iJJ20RAIQCXCQ5KX0RMRsot0r_nH_F92Wtx-LIU
-Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5Y2Q5MzQ0LWI0YjMtNDk5ZC04NmYwLTQ0ZGVkNjUwZGJiZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTAwODc3MCwiZXhwIjoxNjc5MDEyMzcwfQ.60AuSHHPBYvrX0mpCkE6CO5sCdQ33bYWMBKAPrkTjS8
 
 {
-    "bandId" : "d4c43186-52ed-4f24-8dba-382a8f742378",
+    "bandId" : "855dcc91-4ef0-4ca2-b331-8471138169a8",
     "weekDay": "friday", 
     "startTime": "8:00", 
     "endTime": "10:00",

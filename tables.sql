@@ -31,7 +31,19 @@ CREATE TABLE IF NOT EXISTS Lama_Users (
 
 ###
 
-DROP TABLE `NOME_TABELA_BANDAS`, `NOME_TABELA_SHOWS`;
+SELECT * FROM `Lama_Users`;
+
+###
+
+SELECT * FROM `Bands_Name`;
+
+###
+
+SELECT * FROM `Table_Shows`;
+
+###
+
+DROP TABLE `Bands_Name`, `Lama_Users`, `Table_Shows`;
 
 ###
 
@@ -43,3 +55,5 @@ SELECT * FROM `Lama_Users`;
 
 SELECT * FROM `Table_Shows`;
 >>>>>>> 6fd8418e0205b5c84fbd61ca69e6626fb5529da5
+
+
