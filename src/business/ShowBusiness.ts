@@ -95,7 +95,7 @@ export class ShowBusiness {
             throw new CustomError(error.statusCode, error.message)
         }
     } 
-    async updateConcert (input: inputUShowDTO): Promise<void> {
+    async updateShow(input: inputUShowDTO): Promise<void> {
         try {
             if (!input.token) {
                 throw new MissingToken()

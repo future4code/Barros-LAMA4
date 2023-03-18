@@ -55,7 +55,7 @@ export class NoShows extends CustomError {
 
 
 
-export class DuplicateConcert extends CustomError {
+export class DuoShow extends CustomError {
     constructor () {
         super (422, "There is a Show already registered .")
     }
