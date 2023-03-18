@@ -3,7 +3,7 @@
 
 
 ## :memo: Descrição
-implementação de uma API para cadastro de bandas e shows para a e evento LAMA, Labenu Musical Awards.
+implementação de uma API para cadastro de bandas e shows para o evento LAMA, Labenu Musical Awards.
 
 ## 📌 Link Documentação Postman
 [Doc_Postman](https://documenter.getpostman.com/view/22376520/2s93JzKzpB)
