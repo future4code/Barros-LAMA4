@@ -9,7 +9,7 @@ implementação de uma API para cadastro de bandas e shows para o evento LAMA, L
 [Doc_Postman](https://documenter.getpostman.com/view/22376520/2s93JzKzpB)
 
 ## 📦 Link Deploy Render
-
+https://lama-0ddu.onrender.com
 
 ##  👩🏾Pessoas Desenvolvedoras do Projeto
 
