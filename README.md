@@ -3,7 +3,7 @@
 
 
 ## :memo: Descrição
-Projeto desenvolvido como didática de back-end para as turmas JBL LABENU com conteúdos que englobam o universo da criação de uma API com a temática de um sistema de gerenciamento básico da organizaçãode labenu.
+implementação de uma API para cadastro de bandas e shows para a e evento LAMA, Labenu Musical Awards.
 
 ## 📌 Link Documentação Postman
 [Doc_Postman](https://documenter.getpostman.com/view/22376520/2s93JzKzpB)
@@ -13,8 +13,8 @@ Projeto desenvolvido como didática de back-end para as turmas JBL LABENU com co
 
 ##  👩🏾Pessoas Desenvolvedoras do Projeto
 
-| [<img src="https://avatars.githubusercontent.com/u/102339228?v=4" width=115><br><sub>Ricardo Barros</sub>](https://github.com/Ricardoteleco) |  [<img src="https://avatars.githubusercontent.com/u/74737156?v=4" width=115><br><sub>Mauricio Luiz de toledo</sub>](https://github.com/mlt3800)|
-| :---: | :---: | :---: |
+| [<img src="https://avatars.githubusercontent.com/u/102339228?v=4" width=115><br><sub>Ricardo Barros</sub>](https://github.com/Ricardoteleco) |  [<img src="[https://avatars.githubusercontent.com/u/74737156?v=4](https://avatars.githubusercontent.com/u/102395706?v=4)" width=115><br><sub>Mauricio Luiz de toledo</sub>](https://github.com/mlt3800)|
+
 
 ##  🎤 LAMA
 
