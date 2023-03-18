@@ -6,7 +6,7 @@ import { ICreateShowtDTO, IGetAllShowDTO, inputUShowDTO } from "../model/Show"
 export class ShowController {
     constructor (private showBusiness: ShowBusiness) {}
 
-    async createConcert (req: Request, res: Response): Promise<void> {
+    async createShow (req: Request, res: Response): Promise<void> {
         try {
             const input: ICreateShowtDTO = {
                 weekDay: req.body.weekDay,
@@ -49,7 +49,7 @@ export class ShowController {
                 token: req.headers.authorization as string
             }
 
-            await this.showBusiness.updateConcert(input)
+            await this.showBusiness.updateShow(input)
             res.status(201).send("Show updated successfully!")
 
         } catch (error: any) {

@@ -16,5 +16,5 @@ const bandDatabase = new BandCreateDatabase()
 const showBusiness = new ShowBusiness(showsDatabase, bandDatabase, new Authenticator(), new IdGenerator(), new CreateShowTime(showsDatabase))
 const showController = new ShowController(showBusiness)
 
-showRouter.post("/create", (req, res) => showController.createConcert(req, res))
+showRouter.post("/create", (req, res) => showController.createShow(req, res))
 showRouter.get("/", (req, res) => showController.getAllShows(req, res))
