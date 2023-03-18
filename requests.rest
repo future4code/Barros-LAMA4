@@ -1,28 +1,28 @@
 ### Criar Usuário
 
-POST  http://localhost:3300/users/signup
+POST  http://localhost:3003/users/signup
 Content-Type: application/json
 
 {   
-    "email": "maurilson@mauricio.com",
-    "name": "Maurilio", 
+    "email": "ricardo@exemplo.com",
+    "name": "Ricardo", 
     "password": "12345678",
     "role": "ADMIN"
 }
 
 ### Login
 
-POST http://localhost:3300/users/login 
+POST http://localhost:3003/users/login 
 Content-Type: application/json
 
 {   
-    "email": "maurilson@mauricio.com",
+    "email": "ricardo@exemplo.com",
     "password": "12345678"
 }
 
 ### Criar Banda
-POST http://localhost:3300/bands/create
-Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
+POST http://localhost:3003/bands/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI1NWVmM2ZiLTFmZTAtNGE1MC05YWE5LTBlMmUyYzQyMmUwOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTEwMjQ0NiwiZXhwIjoxNjc5MTA2MDQ2fQ.lTdS5O9jXTSkYeIBd8x1SoRewklxTAb_KhbnpwKujJo
 Content-Type: application/json
 
 {
@@ -33,29 +33,29 @@ Content-Type: application/json
 }
 
 ### Ver Bandas Criadas
-GET http://localhost:3300/bands/info?name=Queen
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
+GET http://localhost:3003/bands/info?name=Queen
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI1NWVmM2ZiLTFmZTAtNGE1MC05YWE5LTBlMmUyYzQyMmUwOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTEwMjQ0NiwiZXhwIjoxNjc5MTA2MDQ2fQ.lTdS5O9jXTSkYeIBd8x1SoRewklxTAb_KhbnpwKujJo
 Content-Type: application/json
 
 
 ### Criar Shows
 
-POST http://localhost:3300/show/create 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
+POST http://localhost:3003/show/create 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI1NWVmM2ZiLTFmZTAtNGE1MC05YWE5LTBlMmUyYzQyMmUwOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTEwMjQ0NiwiZXhwIjoxNjc5MTA2MDQ2fQ.lTdS5O9jXTSkYeIBd8x1SoRewklxTAb_KhbnpwKujJo
 Content-Type: application/json
 
 {
-    "bandId" : "c05fb35f-1459-4ccb-8861-96221b7d201e",
+    "bandId" : "eb59dde0-a670-438d-af1c-500de7940452",
     "weekDay": "sunday",
     "startTime": "9:00:00", 
     "endTime": "10:00:00"
   
-    }
+}
     
 
 
 ### Retorna os shows
-GET http://localhost:3300/show?weekDay=friday 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlmNzlhZmQ0LWQ0YTYtNGZlNS04OTg2LWE4ODc1MDllZTliZiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTA4MjEwNiwiZXhwIjoxNjc5MDg1NzA2fQ.vrnc5_FuZqttUZH_rOC5xPv5VzQxCYMn4ALtSeSslEU
+GET http://localhost:3003/show?weekDay=friday 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI1NWVmM2ZiLTFmZTAtNGE1MC05YWE5LTBlMmUyYzQyMmUwOCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3OTEwMzIxMSwiZXhwIjoxNjc5MTA2ODExfQ.HOlvmEMFejMUhcsGHgc44LNRuo5q3NsJvi7EadNoCec
 Content-Type: application/json
 
