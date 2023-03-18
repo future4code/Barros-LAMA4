@@ -11,7 +11,7 @@
     "api",
     "LAMA"
   ],
-  "author": "Israel,Andréa,Júnior e Fay",
+  "author": "Israel,Andréa,Júnior,Fay, Mauricio e Ricardo",
   "license": "ISC",
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
