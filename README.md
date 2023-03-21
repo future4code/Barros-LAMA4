@@ -11,12 +11,11 @@ implementação de uma API para cadastro de bandas e shows para o evento LAMA, L
 ## 📦 Link Deploy Render
 https://lama-0ddu.onrender.com
 
-##  👩🏾Pessoas Desenvolvedoras do Projeto
-
-| [<img src="https://avatars.githubusercontent.com/u/102339228?v=4" width=115><br><sub>Ricardo Barros</sub>](https://github.com/Ricardoteleco) |  [<img src="[https://avatars.githubusercontent.com/u/74737156?v=4](https://avatars.githubusercontent.com/u/102395706?v=4)" width=115><br><sub>Mauricio Luiz de toledo</sub>](https://github.com/mlt3800)|
-
-
-##  🎤 LAMA
+## 👩🏾Pessoas Desenvolvedoras do Projeto
+<br/><h3><sub>Mauricio Luiz de toledo</sub><h3/> (https://github.com/mlt3800)
+<br/><h3><sub>Ricardo Barros</sub><h3/> (https://github.com/Ricardoteleco)
+  
+## 🎤 LAMA
 
 implementação de uma API para cadastro de shows e venda de tickets dos mesmos na plataforma lama.
 
