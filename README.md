@@ -57,7 +57,6 @@ para obter os dados digite no navegador o link da requisição que está na docu
 * [jsonwebtoken]
 * [uuid]
 * [mysql]
-* [jest]
 * API desenvolvida com paradigma orientado a objetos.
 
 
