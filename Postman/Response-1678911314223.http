@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 219
+ETag: W/"db-gwfNGxYsXWF93CIJLPFmYV7Jyfo"
+Date: Wed, 15 Mar 2023 20:15:09 GMT
+Connection: close
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwNGJlZGNhLTM2YzUtNGFkOC05YTU4LWJiNTI5YTcyYjFhZCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTMwOSwiZXhwIjoxNjc4OTE0OTA5fQ.LcfR9AcEVr50HhqklGv5yPtt60bt6pBqRfedxi5tB_k"}

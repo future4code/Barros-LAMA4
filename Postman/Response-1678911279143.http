@@ -1,0 +1,10 @@
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 257
+ETag: W/"101-E41maHfnohjSVsQOBxj92f6EaoQ"
+Date: Wed, 15 Mar 2023 20:13:27 GMT
+Connection: close
+
+{"message":"User created successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIxOTI1MmNhLTg4ZDktNGEyOC04MGU5LTBiZDcyNGNiNWJhYiIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY3ODkxMTIwNywiZXhwIjoxNjc4OTE0ODA3fQ.pngWBrtsyf3TGvgMju4ABdxbIhRHxBj6ZveEaMYKpsU"}
